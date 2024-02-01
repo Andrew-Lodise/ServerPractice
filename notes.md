@@ -37,19 +37,20 @@ app.use("/", (req, res, next) => {
         cmd > npm run dev 
 
 ## setting a status and sending a message together
-app.get("/", (req, res) => {
-    res.status(200).send("Hello string from server response");
-})
+    app.get("/", (req, res) => {
+        res.status(200).send("Hello string from server response");
+    })
 
 ## sending json in response to a get request with a status
-app.get("/json", (req, res) => {
-    res.status(408).json({message: "408 created error"})
-})
+    app.get("/json", (req, res) => {
+        res.status(408).json({message: "408 created error"})
+    })
 
 ## sending down a file? not sure why u would do this but
-app.get("/download", (req, res) =>{
-    res.download("server.js")
-})
+    app.get("/download", (req, res) =>{
+        res.download("server.js")
+    })
+
 ---
 # HTML file sending with ejs
 
@@ -59,8 +60,8 @@ app.get("/download", (req, res) =>{
 ### next we need a view engine (install ejs)
     cmd > npm i ejx
 
-// to use view engine
-app.set("view engine", "ejs")
+## to use view engine
+    app.set("view engine", "ejs")
 
 ## sending down html with ejs
 
@@ -71,7 +72,7 @@ app.get("/html", (req, res) =>{
 
 ## sending down html along with data
 app.get("/html", (req, res) =>{
-    res.render("index", {test_data: "Test data"})
+res.render("index", {test_data: "Test data"})
 })
 
 ### accessing that data from the client side 

@@ -5,6 +5,9 @@ const app = express();
 // to use view engine
 app.set("view engine", "ejs")
 
+// to use router
+const userRouter = require("./routes/users")
+
 // loggin out the request url and method
 app.use("/", (req, res, next) => {
     console.log(req.url, req.method);
@@ -30,6 +33,9 @@ app.get("/json", (req, res) => {
 app.get("/html", (req, res) =>{
     res.render("index", {test_data: "Test data1"})
 })
+
+// routing 
+app.use("/users", userRouter)
 
 
 // starting the server
